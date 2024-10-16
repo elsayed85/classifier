@@ -34,10 +34,9 @@ def initialize_classifier():
     try:
         classifier = pipeline(
             "zero-shot-classification",
-            # model="facebook/bart-large-mnli",
-            model="joeddav/xlm-roberta-large-xnli",
-            # framework="pt",
-            # batch_size=4,
+            model="facebook/bart-large-mnli",
+            framework="pt",
+            batch_size=4,
         )
         print("Classifier initialized successfully")
     except Exception as e:
