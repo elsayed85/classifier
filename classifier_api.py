@@ -46,8 +46,8 @@ def classify():
 
         text = data["text"]
 
-        if "labels" in data:
-            raise ValueError("Custom labels are not supported yet")
+        if "labels" not in data:
+            raise ValueError("Labels are required")
 
         CANDIDATE_LABELS = data.get("labels")
 
@@ -56,7 +56,7 @@ def classify():
             CANDIDATE_LABELS = CANDIDATE_LABELS.split(",")
 
         if not CANDIDATE_LABELS:
-            raise ValueError("Labels are required")
+            raise ValueError("At least one label is required")
 
         classifier = get_classifier()
         result = classifier(text, CANDIDATE_LABELS)
